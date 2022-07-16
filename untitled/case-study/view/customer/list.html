@@ -288,11 +288,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Bạn có muốn xóa dịch vụ này?</p>
+                <h3 id="deleteCus" class="modal-title w-100 text-center"></h3>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Xóa</button>
+                <button type="button" class="btn btn-primary"  onclick=linkDelete()>Xóa</button>
             </div>
         </div>
     </div>
@@ -339,13 +339,23 @@ let temp = '';
 
     function getCustomer(data) {
         return `<tr><td>${data.id}</td><td>${data.name}</td><td>${data.idCard}</td><td>${data.phone}</td><td>${data.type}</td>
-<td><a href="../facility/edit.html" style="font-size: 30px; color: blue"><i
+<td><a href="../customer/edit.html" style="font-size: 30px; color: blue"><i
                                             class="bi bi-pencil-square"></i></a></td><td><a type="button" style="color: red; font-size: 30px" class="bi bi-trash"
                                        data-toggle="modal"
-                                       data-target="#exampleModal">
+                                       data-target="#exampleModal" onclick="customer(id, 'name')">
 
                                     </a>
                                     </td></tr>`
+    }
+var id;
+    function customer(index, name) {
+        id= index;
+        document.getElementById("deleteCus").innerHTML="Bạn có muốn xóa khách hàng " + name;
+    }
+
+    function linkDelete() {
+        let link = "/delete/" + id;
+        window.location.href = link;
     }
 </script>
 
