@@ -129,22 +129,23 @@
                 Create
             </button>
             <center>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Mã KH</th>
-                    <th>Họ và tên</th>
-                    <th>Số chứng minh</th>
-                    <th>Số điện thoại</th>
-                    <th>Loại khách hàng</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody id="customerTable">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Mã dịch vụ</th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày kết thúc</th>
+                        <th>Tên khách hàng</th>
+                        <th>Tên nhân viên</th>
+                        <th>Trả trước</th>
+                        <th>Tổng tiền</th>
+                        <th colspan="2">Dịch vụ đi kèm</th>
+                    </tr>
+                    </thead>
+                    <tbody id="contractTable">
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
             </center>
             <div>
                 <nav aria-label="Page navigation example">
@@ -280,7 +281,7 @@
 </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal delete -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -318,29 +319,42 @@
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
                             <div class="my-4">
-                                <label for="name" class="form-check-label">Tên khách hàng: </label>
-                                <input type="text" id="name" class="form-control" >
+                                <label for="service" class="form-check-label">Dịch vụ: </label>
+                                <select type="text" id="service" class="form-control">
+                                    <option value="1">Villa Beach Front</option>
+                                    <option value="2">House Princess 01</option>
+                                    <option value="3">Room Twin 01</option>
+                                    <option value="4">Villa No Beach Front</option>
+                                </select>
                             </div>
                             <div class="my-4">
-                                <label for="area" class="form-check-label">Số chứng minh nhân dân: </label>
-                                <input type="text" id="area" class="form-control">
+                                <label for="start" class="form-check-label">Tên khách hàng: </label>
+                                <input type="text" id="start" class="form-control" >
                             </div>
                             <div class="my-4">
-                                <label for="cost" class="form-check-label">Số điện thoại: </label>
+                                <label for="empl" class="form-check-label">Nhân viên làm hợp đồng: </label>
+                                <select type="text" id="empl" class="form-control">
+                                    <option value="1">Nguyễn Bảo Long</option>
+                                    <option value="2">Nguyễn Hoàng Hảo</option>
+                                    <option value="3">Trần Xuân Trường</option>
+                                    <option value="4">Lê Huy Hoàng</option>
+                                </select>
+                            </div>
+                            <div class="my-4">
+                                <label for="end" class="form-check-label">Ngày bắt đầu: </label>
+                                <input type="date" id="end" class="form-control" >
+                            </div>
+                            <div class="my-4">
+                                <label for="name" class="form-check-label">Ngày kết thúc: </label>
+                                <input type="date" id="name" class="form-control" >
+                            </div>
+                            <div class="my-4">
+                                <label for="cost" class="form-check-label">Số tiền trả trước: </label>
                                 <input type="text" id="cost" class="form-control">
                             </div>
                             <div class="my-4">
-                                <label for="maxpeople" class="form-check-label">Email: </label>
+                                <label for="maxpeople" class="form-check-label">Tổng tiền: </label>
                                 <input type="text" id="maxpeople" class="form-control">
-                            </div>
-                            <div class="my-4">
-                                <label for="rentType" class="form-check-label">Loại khách: </label>
-                                <select type="text" id="rentType" class="form-control">
-                                    <option value="1">Diamond</option>
-                                    <option value="2">Platinum</option>
-                                    <option value="3">Gold</option>
-                                    <option value="4">Member</option>
-                                </select>
                             </div>
                         </div>
                         <div class="col-md-2"></div>
@@ -366,35 +380,40 @@
 
 <script>
     var a =[{
-        id : 'KH-0001',
-        name: 'Nguyễn Bảo Long',
-        idCard: 123456789,
-        phone: '0373959515',
-        type: "diamond"
-    },
-        {
-            id : 'KH-0002',
-            name: 'Nguyễn Bảo Lộc',
-            idCard: 123456789,
-            phone: '0373959515',
-            type: "diamond"
-        },
-        {
-            id : 'KH-0003',
-            name: 'Nguyễn Bảo Nam',
-            idCard: 123456789,
-            phone: '0373959515',
-            type: "diamond"
-        }]
-let temp = '';
+        id : 1,
+        startDay: '2022-10-11',
+        endDay: '2022-10-15',
+        customer: 'Nguyễn Thị Xuân Hương',
+        employee: 'Nguyễn Bảo Long',
+        deposit: 500000,
+        total: 2000000
+    },{
+        id : 2,
+        startDay: '2022-10-11',
+        endDay: '2022-10-15',
+        customer: 'Nguyễn Thị Bích Hằng',
+        employee: 'Nguyễn Hoàng Hảo',
+        deposit: 500000,
+        total: 2000000
+    },{
+        id : 3,
+        startDay: '2022-10-11',
+        endDay: '2022-10-15',
+        customer: 'Trần Tiến Dũng',
+        employee: 'Lê Huy Hoàng',
+        deposit: 500000,
+        total: 2000000
+    }
+       ]
+    let temp = '';
     for (let i = 0; i <a.length ; i++) {
         temp +=  getCustomer(a[i]);
     }
-    document.getElementById("customerTable").innerHTML= temp
+    document.getElementById("contractTable").innerHTML= temp
 
     function getCustomer(data) {
-        return `<tr><td>${data.id}</td><td>${data.name}</td><td>${data.idCard}</td><td>${data.phone}</td><td>${data.type}</td>
-<td><a href="../customer/edit.html" style="font-size: 30px; color: blue"><i
+        return `<tr><td>${data.id}</td><td>${data.startDay}</td><td>${data.endDay}</td><td>${data.customer}</td><td>${data.employee}</td><td>${data.deposit}</td><td>${data.total}</td>
+<td><a href="#" style="font-size: 30px; color: blue"><i
                                             class="bi bi-pencil-square"></i></a></td><td><a type="button" style="color: red; font-size: 30px" class="bi bi-trash"
                                        data-toggle="modal"
                                        data-target="#exampleModal" onclick="customer(id, 'name')">
@@ -402,10 +421,10 @@ let temp = '';
                                     </a>
                                     </td></tr>`
     }
-var id;
+    var id;
     function customer(index, name) {
         id= index;
-        document.getElementById("deleteCus").innerHTML="Bạn có muốn xóa khách hàng " + name;
+        document.getElementById("deleteCus").innerHTML="Bạn có muốn xóa hợp đồng này ? ";
     }
 
     function linkDelete() {
