@@ -21,7 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="04a37ccb-8c21-4e14-8a9d-626c1320565f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/case-study/view/footer_header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/case-study/view/footer_header/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/case-study/2.1/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/case-study/2.1/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/case-study/2.1/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/case-study/2.1/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/case-study/view/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/case-study/view/contract/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/case-study/view/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/case-study/view/customer/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/case-study/view/facility/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/case-study/view/facility/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/module5",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,6 +82,10 @@
       <workItem from="1658069201518" duration="17000" />
       <workItem from="1658071818592" duration="415000" />
       <workItem from="1658130398104" duration="4297000" />
+      <workItem from="1658138617624" duration="612000" />
+      <workItem from="1658193649681" duration="4068000" />
+      <workItem from="1658212296496" duration="1763000" />
+      <workItem from="1658224268337" duration="1380000" />
     </task>
     <servers />
   </component>
