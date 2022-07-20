@@ -1,0 +1,48 @@
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Edit Customer</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="addEmployee" method="post">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <input type="hidden" id="id">
+              <div class="my-4">
+                <label for="name" class="form-check-label">Tên khách hàng: </label>
+                <input type="text" id="name" class="form-control" readonly>
+              </div>
+              <div class="my-4">
+                <label for="area" class="form-check-label">Số chứng minh: </label>
+                <input type="text" id="area" class="form-control">
+              </div>
+              <div class="my-4">
+                <label for="cost" class="form-check-label">Số điện thoại: </label>
+                <input type="text" id="cost" class="form-control">
+              </div>
+              <div class="my-4">
+                <label for="rentType" class="form-check-label">Loại khách hàng: </label>
+                <select type="text" id="rentType" class="form-control">
+                  <option value="1">Diamond</option>
+                  <option value="2">Platinum</option>
+                  <option value="3">Gold</option>
+                  <option value="4">Member</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary create">Edit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
