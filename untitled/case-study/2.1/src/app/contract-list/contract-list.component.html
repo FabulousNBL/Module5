@@ -1,0 +1,71 @@
+
+<div class="row">
+  <div class="col-lg-12">
+    <h3>Customer List</h3>
+    <button type="button"
+            class="btn btn-danger" data-toggle="modal" data-target="#create">
+      Create
+    </button>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Tên dịch vụ</th>
+        <th>Ngày bắt đầu</th>
+        <th>Ngày kết thúc</th>
+        <th>Khách hàng</th>
+        <th>Nhân viên làm hợp đồng</th>
+        <th>Số tiền trả trước</th>
+        <th>Tổng cộng</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody id="customerTable">
+      <tr *ngFor="let contract of contracts">
+        <td>{{contract.service}}</td>
+        <td>{{contract.startDay}}</td>
+        <td>{{contract.endDay}}</td>
+        <td *ngIf="contract.customerId == 1">Nguyễn Bảo Long</td>
+        <td *ngIf="contract.customerId == 2">Nguyễn Thị Xuân Hương</td>
+        <td *ngIf="contract.customerId == 3">Lê Huy Hoàng</td>
+        <td *ngIf="contract.customerId == 4">Nguyễn Duy Hưng</td>
+        <td *ngIf="contract.employeeId == 1">Nguyễn Hoàng Hảo</td>
+        <td *ngIf="contract.employeeId == 2">Trần Xuân Trường</td>
+        <td *ngIf="contract.employeeId == 3">Nguyễn Thiên Duy</td>
+        <td *ngIf="contract.employeeId == 4">Huỳnh Kim Hiếu</td>
+        <td>{{contract.deposit}}</td>
+        <td>{{contract.total}}</td>
+        <td><a  style="font-size: 30px; color: blue"><i
+          class="bi bi-pencil-square" data-toggle="modal" data-target="#edit"></i></a></td>
+        <td><a type="button" style="color: red; font-size: 30px" class="bi bi-trash"
+               data-toggle="modal"
+               data-target="#exampleModal">
+
+        </a></td>
+
+      </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="@{'/employee/list'(page=0)}" aria-label="First">
+              First
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="@{'/employee/list'(page=${employeeList.number-1})}" th:if="${employeeList.hasPrevious()}">Previous</a>
+          <li class="page-item"><a class="page-link" href="@{'/employee/list'(page=${employeeList.number+1})}" th:if="${employeeList.hasNext()}">Next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="@{'/employee/list'(page=${employeeList.totalPages-1})}" aria-label="Last">
+              Last
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

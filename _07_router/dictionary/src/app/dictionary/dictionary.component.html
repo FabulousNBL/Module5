@@ -1,0 +1,11 @@
+<h1>Dictionary</h1>
+<table>
+  <tr>
+    <td>Word</td>
+    <td>Mean</td>
+  </tr>
+  <tr *ngFor="let dictionary of diction">
+    <td>{{dictionary.word}}</td>
+    <td><a routerLink="/detail/{{dictionary.word}}">See Detail</a></td>
+  </tr>
+</table>
