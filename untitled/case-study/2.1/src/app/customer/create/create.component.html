@@ -1,0 +1,62 @@
+<div class="modal fade" id="create" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Add new Customer</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="my-4">
+                <label for="id" class="form-check-label">Mã khách hàng: </label>
+                <input type="text" id="id" class="form-control" formControlName="id">
+                <div *ngIf="createForm.controls.id.dirty && createForm.hasError('required','id')">
+                  <p>Email is required</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="name" class="form-check-label">Tên khách hàng: </label>
+                <input type="text" id="name" class="form-control" formControlName="name">
+                <div *ngIf="createForm.controls.name.dirty && createForm.hasError('required','name')">
+                  <p>Email is required</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="idCard" class="form-check-label">Chứng minh nhân dân: </label>
+                <input type="text" id="idCard" class="form-control" formControlName="idCard">
+                <div *ngIf="createForm.controls.idCard.dirty && createForm.hasError('required','idCard')">
+                  <p>Email is required</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="phone" class="form-check-label">Số điện thoại: </label>
+                <input type="text" id="phone" class="form-control" formControlName="phone">
+                <div *ngIf="createForm.controls.phone.dirty && createForm.hasError('pattern','phone')">
+                  <p>Email is required</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="rentType" class="form-check-label">Loại khách hàng: </label>
+                <select type="text" id="rentType" class="form-control" formControlName="type">
+                  <option value="1">Diamond</option>
+                  <option value="2">Platinum</option>
+                  <option value="3">Gold</option>
+                  <option value="4">Member</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary create">Create</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

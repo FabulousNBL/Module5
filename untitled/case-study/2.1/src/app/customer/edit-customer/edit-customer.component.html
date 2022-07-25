@@ -1,0 +1,34 @@
+<form [formGroup]="updateForm" (ngSubmit)="update()">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <input type="hidden" id="id" formControlName="id">
+    <div class="my-4">
+      <label for="name" class="form-check-label">Tên khách hàng: </label>
+      <input type="text" id="name" class="form-control" readonly formControlName="name">
+    </div>
+    <div class="my-4">
+      <label for="area" class="form-check-label">Số chứng minh: </label>
+      <input type="text" id="area" class="form-control" formControlName="idCard">
+    </div>
+    <div class="my-4">
+      <label for="cost" class="form-check-label">Số điện thoại: </label>
+      <input type="text" id="cost" class="form-control" formControlName="phone">
+    </div>
+    <div class="my-4">
+      <label for="rentType" class="form-check-label">Loại khách hàng: </label>
+      <select type="text" id="rentType" class="form-control" formControlName="type">
+        <option value="1">Diamond</option>
+        <option value="2">Platinum</option>
+        <option value="3">Gold</option>
+        <option value="4">Member</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-2"></div>
+  <div >
+
+    <button type="submit">Edit</button>
+  </div>
+
+</form>

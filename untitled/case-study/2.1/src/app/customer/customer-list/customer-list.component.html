@@ -1,0 +1,63 @@
+
+<app-create></app-create>
+<div class="row">
+  <div class="col-lg-12">
+    <h3>Customer List</h3>
+    <button type="button"
+            class="btn btn-danger" data-toggle="modal" data-target="#create">
+      Create
+    </button>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Mã KH</th>
+        <th>Họ và tên</th>
+        <th>Số chứng minh</th>
+        <th>Số điện thoại</th>
+        <th>Loại khách hàng</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody id="customerTable">
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.id}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.idCard}}</td>
+        <td>{{customer.phone}}</td>
+        <td *ngIf="customer.type == 1">Diamond</td>
+        <td *ngIf="customer.type == 2">Platinum</td>
+        <td *ngIf="customer.type == 3">Gold</td>
+        <td *ngIf="customer.type == 4">Member</td>
+        <td><a style="font-size: 30px; color: blue" routerLink="/customer/edit/{{customer.id}}"><i
+          class="bi bi-pencil-square"></i></a></td>
+        <td><a type="button" style="color: red; font-size: 30px" class="bi bi-trash"
+               routerLink="/customer/delete/{{customer.id}}" >
+        </a></td>
+
+      </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="@{'/employee/list'(page=0)}" aria-label="First">
+              First
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="@{'/employee/list'(page=${employeeList.number-1})}" th:if="${employeeList.hasPrevious()}">Previous</a>
+          <li class="page-item"><a class="page-link" href="@{'/employee/list'(page=${employeeList.number+1})}" th:if="${employeeList.hasNext()}">Next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="@{'/employee/list'(page=${employeeList.totalPages-1})}" aria-label="Last">
+              Last
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
