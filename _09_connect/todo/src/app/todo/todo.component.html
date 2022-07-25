@@ -1,0 +1,15 @@
+<h2 class="text-center">
+  Todo App
+</h2>
+<div class="col-md-8 offset-md-2">
+  <form [formGroup]="todoForm">
+    <input type="text" [(ngModel)]="todo" class="form-control" formControlName="content" (change)="create()">
+  </form>
+  <ul>
+    <li *ngFor="let todo of todos; index as i">
+      {{todo.content}}
+      <button (click)="delete(todo.id)">delete</button>
+      <button (click)="editDisplay(todo.id)">edit</button>
+    </li>
+  </ul>
+</div>
