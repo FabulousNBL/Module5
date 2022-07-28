@@ -1,0 +1,78 @@
+{
+  "customerList": [
+    {
+      "id": 1,
+      "name": "i",
+      "idCard": "123456789321",
+      "phone": "+841236547896",
+      "typeCustomer": {
+        "typeId": 2,
+        "typeName": "Platinum"
+      }
+    },
+    {
+      "id": 2,
+      "name": "qửqwe",
+      "idCard": "123123",
+      "phone": "+841236543896",
+      "typeCustomer": {
+        "typeId": 1,
+        "typeName": "Diamond"
+      }
+    },
+    {
+      "id": 3,
+      "name": "linh",
+      "idCard": "123456789321",
+      "phone": "+841236547896",
+      "typeCustomer": {
+        "typeId": 2,
+        "typeName": "Platinum"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Long",
+      "idCard": "6541238788",
+      "phone": "+84123654987",
+      "typeCustomer": {
+        "typeId": 2,
+        "typeName": "Platinum"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Bảo Long            ",
+      "idCard": "32165489",
+      "phone": "+84321654987",
+      "typeCustomer": {
+        "typeId": 1,
+        "typeName": "Diamond"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Nguyễn Bảo Long            ",
+      "idCard": "12345668",
+      "phone": "+84654654654",
+      "typeCustomer": {
+        "typeId": 1,
+        "typeName": "Diamond"
+      }
+    }
+  ],
+  "typeList": [
+    {
+      "typeId": 1,
+      "typeName": "Diamond"
+    },
+    {
+      "typeId": 2,
+      "typeName": "Platinum"
+    },
+    {
+      "typeId": 3,
+      "typeName": "Gold"
+    }
+  ]
+}
