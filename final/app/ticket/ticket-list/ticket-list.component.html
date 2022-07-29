@@ -1,0 +1,130 @@
+<app-create (eventEmitter)="getAll()"></app-create>
+<!--<div class="container-fluid">-->
+<div class="row">
+  <div class="col-lg-12">
+    <h3>Customer List</h3>
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-md-6 my-2 ">
+          <label for="from" class="form-check-label m-4"> Điểm đi: </label>
+          <input type="text" id="from" (keydown.enter)="getFrom($event.target.value)">
+        </div>
+        <div class="col-md-6 my-2">
+          <label for="to" class="form-check-label m-4"> Điểm đến: </label>
+          <input type="text" id="to" (keydown.enter)="getTo($event.target.value)">
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-md-6 my-2 ">
+          <label for="day" class="form-check-label m-4"> Ngày khởi hành từ: </label>
+          <input type="date" id="day" (keydown.enter)="getDay($event.target.value)">
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <button type="button"
+                  class="btn btn-danger" data-toggle="modal" data-target="#create">
+            Thêm vé
+          </button>
+        </div>
+<!--        <div class="col-md-6">-->
+<!--          <input type="text" (keydown.enter)="getString($event.target.value)">-->
+<!--        </div>-->
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Điểm đi</th>
+        <th>Điểm đến</th>
+        <th>Giá vé</th>
+        <th>Ngày khởi hành</th>
+        <th>Giờ khởi hành</th>
+        <th>Nhà xe</th>
+        <th>Số lượng</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+      <tbody id="customerTable">
+      <tr
+        *ngFor="let ticket of tickets | paginate: {itemsPerPage: 2, currentPage: page, totalItems: totalLength}">
+        <td>{{ticket.fromPlace}}</td>
+        <td>{{ticket.toPlace}}</td>
+        <td>{{ticket.price}}</td>
+        <td>{{ticket.day | date: "dd/MM/yyyy"}}</td>
+        <td>{{ticket.atTime}}</td>
+        <td>{{ticket.company.name}}</td>
+        <td>{{ticket.count}}</td>
+
+<!--        <td><a style="font-size: 30px; color: blue" [routerLink]="['/customer/edit',customer.id]"><i-->
+<!--          class="bi bi-pencil-square"></i></a></td>-->
+        <td>
+          <a type="button" data-toggle="modal" data-target="#exampleModalLong" (click)="getTicket(ticket)"
+             class="btn btn-primary" > Đặt vé
+          </a>
+        </td>
+        <td><a style="font-size: 30px; color: blue" [routerLink]="['/edit',ticket.id]"><i
+          class="bi bi-pencil-square"></i></a>
+        </td>
+        <td>
+          <a type="button"  data-toggle="modal" data-target="#exampleModalLong1" (click)="getTicketDelete(ticket)" class="btn btn-primary bi bi-trash3 ">
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+         aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <span>Bạn có chắc muốn đặt vé xe từ {{bookedTicket.fromPlace}} đến {{bookedTicket.toPlace}} vào {{bookedTicket.atTime}} ngày
+            {{bookedTicket.day}} không? </span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+            <button type="button" class="btn btn-primary" (click)="bookTicket(bookedTicket)"
+                    data-dismiss="modal">Có
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle1">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Bạn có muốn xoá vé xe từ {{ticketDelete.fromPlace}} đến {{ticketDelete.toPlace}} vào lúc {{ticketDelete.atTime}} ngày {{ticketDelete.day}}?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="deleteTicket()" data-dismiss="modal">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+<!--</div>-->
