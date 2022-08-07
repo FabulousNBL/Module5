@@ -1,0 +1,91 @@
+<div class="modal fade" id="create" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Thêm vé xe</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="createForm">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="my-4">
+                <label for="name" class="form-check-label">Điểm đi: </label>
+                <input type="text" id="name" class="form-control" formControlName="fromPlace">
+                <div *ngIf="createForm.controls.fromPlace.dirty && createForm.hasError('required','fromPlace')">
+                  <p>Điểm đi không được để trống</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="idCard" class="form-check-label">Điểm đến: </label>
+                <input type="text" id="idCard" class="form-control" formControlName="toPlace">
+                <div *ngIf="createForm.controls.toPlace.dirty && createForm.hasError('required','toPlace')">
+                  <p>Điểm đến không được để trống</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="phone" class="form-check-label">Nhà xe: </label>
+
+                <select formControlName="company" class="custom-select w-45" id="customerType">
+                  <option [ngValue]="null">---Chọn---</option>
+                  <option [ngValue]="ct" *ngFor="let ct of company">
+                    {{ct.name}}
+                  </option>
+                </select>
+                <div *ngIf="createForm.controls.company.dirty && createForm.hasError('required','company')">
+                  <p>Trường này là bắt buộc</p>
+                </div>
+              </div>
+              <div class="form-group my-4">
+                <label for="customerType" class="form-check-label">Ngày khởi hành</label>
+                <input type="date" id="phone" class="form-control" formControlName="day">
+                <div *ngIf="createForm.controls.day.dirty && createForm.hasError('required','day')">
+                  <p>Ngày khởi hành không được để trống</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="at" class="form-check-label">Giờ khởi hành: </label>
+                <input type="text" id="at" class="form-control" formControlName="atTime">
+                <div *ngIf="createForm.controls.atTime.dirty && createForm.hasError('required','atTime')">
+                  <p>Giờ khởi hành không được để trống</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="count" class="form-check-label">Số lượng: </label>
+                <input type="text" id="count" class="form-control" formControlName="count">
+                <div *ngIf="createForm.controls.count.dirty && createForm.hasError('required','count')">
+                  <p>Số lượng không được để trống</p>
+                </div>
+                <div *ngIf="createForm.controls.count.dirty && createForm.hasError('min','count')">
+                  <p>Số lượng không được nhỏ hơn 0</p>
+                </div>
+              </div>
+              <div class="my-4">
+                <label for="price" class="form-check-label">Giá vé: </label>
+                <input type="text" id="price" class="form-control" formControlName="price">
+                <div *ngIf="createForm.controls.price.dirty && createForm.hasError('required','price')">
+                  <p>Giá vé không được để trống</p>
+                </div>
+                <div *ngIf="createForm.controls.price.dirty && createForm.hasError('min','price')">
+                  <p>Giá vé không được nhỏ hơn 0</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2"></div>
+            <div class="modal-footer">
+              <a routerLink="/" type="button" class="btn btn-dark" data-dismiss="modal">Quay lại</a>
+              <button type="submit" class="btn btn-primary create"
+                      (click)="onSubmit()" data-dismiss="modal"
+                      [disabled]="!createForm.valid">Create
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -35,5 +35,10 @@ public class TicketService implements ITicketService {
          ticketRepository.deleteById(id);
     }
 
+    @Override
+    public Page<Ticket> search(String start, String end, Pageable pageable) {
+        return ticketRepository.search(start, end, pageable);
+    }
+
 
 }

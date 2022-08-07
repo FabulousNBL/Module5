@@ -1,0 +1,50 @@
+<form [formGroup]="editForm" (ngSubmit)="update()">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <input type="hidden" id="id" formControlName="id">
+    <div class="my-4">
+      <label for="name" class="form-check-label">Nơi đi: </label>
+      <input type="text" id="name" class="form-control"  formControlName="fromPlace">
+    </div>
+    <div class="my-4">
+      <label for="area" class="form-check-label">Nơi đến: </label>
+      <input type="text" id="area" class="form-control" formControlName="toPlace">
+    </div>
+    <div class="my-4">
+      <label for="cost" class="form-check-label">Giá: </label>
+      <input type="text" id="cost" class="form-control" formControlName="price">
+    </div>
+    <div >
+      <label for="id1">Nhà xe: </label>
+      <select formControlName="company" [compareWith]="compareByID" class="form-control w-50" id="id1">
+        <option value="">---select---</option>
+        <option *ngFor="let item of companies" [ngValue]="item" >{{item.name}}</option>
+      </select>
+    </div>
+    <div class="my-4">
+      <label for="time" class="form-check-label">Giờ đi: </label>
+      <input type="text" id="time" class="form-control" formControlName="atTime">
+    </div>
+    <div class="my-4">
+      <label for="day" class="form-check-label">Ngày khởi hành: </label>
+      <input type="date" id="day" class="form-control" formControlName="day">
+    </div>
+    <div class="my-4">
+      <label for="count" class="form-check-label">Số lượng vé: </label>
+      <input type="text" id="count" class="form-control" formControlName="count">
+    </div>
+  </div>
+
+  <!--  <select class="custom-select col-12" formControlName="position" [compareWith]="compareWithId">-->
+  <!--    <option value="">Chức vụ</option>-->
+  <!--    <option *ngFor="let position of position"-->
+  <!--            [ngValue]="position">{{position.positionName}}</option>-->
+  <!--  </select>-->
+
+  <div class="col-md-2"></div>
+  <div >
+
+    <button type="submit">Edit</button>
+  </div>
+
+</form>

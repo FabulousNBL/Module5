@@ -6,6 +6,7 @@ import final5.service.company.ICompanyService;
 import final5.service.ticket.ITicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,8 @@ public class RestController {
     private ITicketService ticketService;
 
     @GetMapping
-    public ResponseEntity<?>getAll(@PageableDefault(value = 4) Pageable pageable){
-        Page<Ticket> ticketList = ticketService.findAll(pageable);
+    public ResponseEntity<?>getAll(@RequestParam(defaultValue = "0") int page){
+        Page<Ticket> ticketList = ticketService.findAll(PageRequest.of(page,2));
         return new ResponseEntity<>(ticketList, HttpStatus.OK);
     }
 
@@ -55,5 +56,18 @@ public class RestController {
         ticketService.deleteById(id);
         System.out.println("HERE");
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/search/{start}/{end}")
+    public ResponseEntity<?> search(@PathVariable String start,
+                                    @PathVariable String end,
+                                    @RequestParam(defaultValue = "0") int page  ){
+        if (start.equals(" ")){
+            start= "";
+        }
+        if (end.equals(" ")){
+            end = "";
+        }
+        return new ResponseEntity<>(ticketService.search(start,end,PageRequest.of(page,2)), HttpStatus.OK);
     }
 }
